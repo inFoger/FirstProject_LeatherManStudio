@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBattleLogic : MonoBehaviour
 {
-    public float health = 10f, damage = 1f , hit_force = 200f;
+    public float health = 10f, damage = 1f , hit_force = 200f, expForKill = 9f;
     private Animator _animator;
     private Rigidbody2D _rb;
 
@@ -44,5 +44,15 @@ public class EnemyBattleLogic : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerBattleStats>().TakeDamage(damage, GetComponent<EnemyMovementLogic>().GetVectorDirection(), hit_force, 0.6f);
         }
+    }
+
+    public float GetExp()
+    {
+        return expForKill;
+    }
+
+    public float GetHealth()
+    {
+        return health;
     }
 }
